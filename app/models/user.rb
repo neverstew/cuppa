@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   enum role: [:seeker, :helper]
+
+  validates_presence_of :role
 end
