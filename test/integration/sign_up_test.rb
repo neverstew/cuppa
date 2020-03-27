@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SignUpTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
-  
+
   test 'can create an account' do
     get '/'
     assert_response :success
@@ -23,7 +23,7 @@ class SignUpTest < ActionDispatch::IntegrationTest
       }
     
     assert_response :redirect
-    assert_equal User.count, 1
+    assert_equal User.last.email, 'someemail@example.com'
   end
 
   test 'gets redirected to users#show' do

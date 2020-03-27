@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   test 'can be created' do
     user = User.create(
-      id: 1,
+      id: 2,
       email: 'somemail@example.com',
       password: 'mygreatpassword',
       created_at: Time.now(),
