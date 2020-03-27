@@ -1,0 +1,4 @@
+<div class="navigation navigation--landing-page">
+  <%= react_component("shared/Navbar", { userLoggedIn: user_signed_in?, currentUser: current_user, isTransparent: true }) %>
+</div>
+<%= react_component("shared/VideoHero", { greeting: "Hello from Craig." }) %>

@@ -1,0 +1,13 @@
+.navigation {
+  width: 100%;
+
+  &__logo {
+    width: 150px;
+    height: auto;
+  }
+
+  &--landing-page {
+    position: absolute;
+    z-index: 100;
+  }
+}
