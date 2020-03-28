@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   test 'can be created' do
     user = User.create(
-      id: 2,
+      id: 99,
       email: 'somemail@example.com',
       password: 'mygreatpassword',
       created_at: Time.now(),
@@ -16,7 +16,7 @@ class UserTest < ActiveSupport::TestCase
 
   test 'cannot be created without role' do
     user = User.create(
-      id: 1,
+      id: 99,
       email: 'somemail@example.com',
       password: 'mygreatpassword',
       created_at: Time.now(),
