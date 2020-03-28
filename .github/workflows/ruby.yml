@@ -23,15 +23,25 @@ jobs:
       uses: actions/setup-ruby@v1
       with:
         ruby-version: 2.4.9
-    - name: Build and test with Rake
+    - name: Set up Node 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Build ruby
       env:
-        PGHOST: 127.0.0.1
-        PGUSER: postgres
         RAILS_ENV: test
       run: |
         sudo apt-get -yqq install libpq-dev
         gem install bundler
         bundle install --jobs 4 --retry 3
+    - name: Build node
+      run: yarn
+    - name: Test with Rake
+      env:
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
+        RAILS_ENV: test
+      run: |
         bundle exec rails db:create
         bundle exec rails db:migrate
         bundle exec rails test

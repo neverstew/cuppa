@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang='en-GB'>
+
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuppa</title>
@@ -15,14 +16,25 @@
 
   <body>
     <div class="navigation">
-      <%= react_component("shared/Navbar", { userLoggedIn: user_signed_in?, currentUser: current_user, isTransparent: false }) %>
+      <nav class="navigation navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+          <a href="/" class="navbar-brand">
+            <%= image_tag("cuppa-light.png", :class => "navigation__logo") %>
+          </a>
+          <% if user_signed_in? %>
+            <%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'btn btn-primary') %>
+          <% else %>
+            <%= link_to('Log in', new_user_session_path, class: 'btn btn-primary') %>
+          <% end %>
+      </nav>
     </div>
     <% if notice %>
-      <p class="notice"><%= notice %></p>
+    <p class="notice"><%= notice %></p>
     <% end %>
     <% if alert %>
-      <p class="alert"><%= alert %></p>
+    <p class="alert"><%= alert %></p>
     <% end %>
     <%= yield %>
   </body>
+
 </html>

@@ -13,6 +13,18 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :role %><br />
+    <div>
+      <%= radio_button :user, :role, :seeker, autocomplete: "role" %>
+      <em>I'm seeking help</em>
+    </div>
+    <div>
+      <%= radio_button :user, :role, :helper, autocomplete: "role" %>
+      <em>I'm offering help</em>
+    </div>
+  </div>
+
+  <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>

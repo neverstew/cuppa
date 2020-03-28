@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Container, Button } from 'react-bootstrap';
 import Logo from '../../../assets/images/cuppa-light.png'
 
 const Navigation = ({userLoggedIn, currentUser, isTransparent}) => {
