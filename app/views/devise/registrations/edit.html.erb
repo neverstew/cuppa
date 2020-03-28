@@ -44,6 +44,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, value: resource.description, rows: 10 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telephone %><br />
+    <%= f.phone_field :telephone, value: resource.telephone, autocomplete: "telephone" %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
