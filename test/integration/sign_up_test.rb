@@ -26,13 +26,13 @@ class SignUpTest < ActionDispatch::IntegrationTest
     assert_equal User.last.email, 'someemail@example.com'
   end
 
-  test 'gets redirected to users#show' do
+  test 'gets redirected to Edit User page' do
     @user = User.create(email: 'ex@example.com', password: 'aksdhjfasdf', role: :helper)
     sign_in @user
     get '/'
     follow_redirect!
-
-    assert_select 'h1', 'Users#show'
+    follow_redirect!
+    assert_select 'h2', 'Edit User'
   end
 
   test 'log in/out links show correctly' do
@@ -42,6 +42,8 @@ class SignUpTest < ActionDispatch::IntegrationTest
     sign_in users(:alice)
     get '/'
     follow_redirect!
+    follow_redirect!
+
     assert_select 'a', 'Log out'
   end
 end
