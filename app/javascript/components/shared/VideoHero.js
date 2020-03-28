@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container, Nav, NavDropdown, Button } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 
-const VideoHero = ({children}) => {
+const VideoHero = ({title, subtitle}) => {
   function handleSignUp(){
     window.location.replace('/sign_up')
   }
@@ -14,8 +14,8 @@ const VideoHero = ({children}) => {
     <Container className="video-hero__container h-100">
       <div className="d-flex h-100 text-center align-items-center">
         <div className="w-100 text-white">
-          <h1 className="display-4">Need help during Covid-19?</h1>
-          <p className="lead">Find people in your local area who can help.</p>
+          <h1 className="display-4">{title}</h1>
+          <p className="lead">{subtitle}</p>
           <Button variant="primary" onClick={handleSignUp}>Sign up now</Button>
         </div>
       </div>

@@ -19,7 +19,7 @@
       <nav class="navigation navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container">
           <a href="/" class="navbar-brand">
-            <img class="navigation__logo" src="https://fakeplasticwebsites.com/wp-content/uploads/2017/03/FPW_Logo_White_transparent.png">
+            <%= image_tag("cuppa-light.png", :class => "navigation__logo") %>
           </a>
           <% if user_signed_in? %>
             <%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'btn btn-primary') %>

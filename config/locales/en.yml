@@ -1,33 +1,11 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  splash_page:
+    slide_title: Fancy a cuppa?
+    slide_subtitle: Find people in your local area who can help you during Covid-19
+    intro_title: What is cuppa?
+    intro_content: We are in uncertain times here in the UK. The Covid-19 Coronavirus has posed challenges for many people & businesses in the UK. So far we have seen the country come together. But there are still vunerable people here in the UK who are in need of help. Help can come in a variety of forms. It could be picking up essential groceries or it could just be a someone to chat to. Cuppa looks to put you in contact with local people who can meet with your needs.
+    role_cards:
+      - title: Need help?
+        content: Do you need help during the Covid-19 lockdown? Sign up and get in contact with local people in your area.
+      - title: Want to help?
+        content: Are you in a position to help vunerable people in your area? Sign up and we will match you with people within 5 miles of your location.

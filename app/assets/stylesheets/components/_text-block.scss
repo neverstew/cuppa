@@ -1,0 +1,13 @@
+.text-block {
+  padding: 3rem 1rem;
+  text-align: center;
+
+  &__image {
+    width: 75px;
+    padding-bottom: 0.5rem;
+  }
+
+  &__title {
+    padding-bottom: 1rem;
+  }
+}
