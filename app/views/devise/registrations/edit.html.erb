@@ -1,86 +1,93 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class='mb-5'>Edit Profile</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <% if resource.avatar.attached? %>
-      <%= image_tag resource.avatar.variant(resize: "320x320"), class: 'img-fluid rounded-circle', alt: :avatar %>
-    <% end %>
-    <%= f.file_field :avatar, accept: 'image/png,image/gif,image/jpeg' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :role %><br />
-    <div>
-      <%= radio_button :user, :role, :seeker, autocomplete: "role", checked: resource.seeker? %>
-      <em>I'm seeking help</em>
+  <section class='mb-5'>
+    <h3>Your Details</h3>
+    <div class="field mb-4">
+      <%= f.label :avatar, class: 'd-block text-uppercase font-weight-bold mb-0' %>
+      <% if resource.avatar.attached? %>
+        <%= image_tag resource.avatar.variant(resize: "320x320"), class: 'img-fluid rounded-circle', alt: :avatar %>
+      <% end %>
+      <%= f.file_field :avatar, accept: 'image/png,image/gif,image/jpeg' %>
     </div>
-    <div>
-      <%= radio_button :user, :role, :helper, autocomplete: "role", checked: resource.helper? %>
-      <em>I'm offering help</em>
+
+    <div class="field mb-4">
+      <%= f.label :email, class: 'd-block text-uppercase font-weight-bold mb-0' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
-  </div>
 
-  <div class="field">
-    <%= f.label :location %><br />
-    <input 
-      id="user_location" 
-      name="user[location]" 
-      class="controls" 
-      type="text" 
-      placeholder="Start typing here" 
-      value="<%= resource.location %>"/>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, value: resource.description, rows: 10 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :telephone %><br />
-    <%= f.phone_field :telephone, value: resource.telephone, autocomplete: "telephone" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field mb-4">
+      <%= f.label :role, class: 'd-block text-uppercase font-weight-bold mb-0' %>
+      <div class='d-flex'>
+        <div class='mr-3'>
+          <%= radio_button :user, :role, :seeker, autocomplete: "role", checked: resource.seeker? %>
+          <em>I'm seeking help</em>
+        </div>
+        <div>
+          <%= radio_button :user, :role, :helper, autocomplete: "role", checked: resource.helper? %>
+          <em>I'm offering help</em>
+        </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+    <div class="field mb-4">
+      <%= f.label :location, class: 'd-block text-uppercase font-weight-bold mb-0' %>
+      <input 
+        id="user_location" 
+        name="user[location]" 
+        class="controls" 
+        type="text" 
+        placeholder="Start typing here" 
+        value="<%= resource.location %>"/>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <div class="field mb-4">
+      <%= f.label :description, class: 'd-block text-uppercase font-weight-bold mb-0' %>
+      <%= f.text_area :description, value: resource.description, rows: 10 %>
+    </div>
+
+    <div class="field mb-4">
+      <%= f.label :telephone, class: 'd-block text-uppercase font-weight-bold mb-0' %>
+      <%= f.phone_field :telephone, value: resource.telephone, autocomplete: "telephone" %>
+    </div>
+  </section>
+
+  <section class='mb-5'>
+    <h3>Change Password</h3>
+    <div class="field mb-4">
+      <%= f.label :password, class: 'd-block text-uppercase font-weight-bold mb-0' %> <i>(leave blank if you don't want to change it)</i>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        
+        <em><%= @minimum_password_length %> characters minimum</em>
+      <% end %>
+    </div>
+
+    <div class="field mb-4">
+      <%= f.label :password_confirmation, class: 'd-block text-uppercase font-weight-bold mb-0' %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  </section>
+
+  <section class='mb-5'>
+    <h3>Save Changes</h3>
+    <div class="d-md-flex field mb-4">
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: 'Confirm your password to save', required: true %>
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    </div>
+  </section>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<section class='mb-5'>
+  <h3>Cancel your account</h3>
+  <p>Unhappy? We'd love if you'd <a class='bg-primary text-light pl-2 pr-2' href='https://emailm.typeform.com/to/PhD2wD'>let us know why</a> before you go.</p>
+  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:'btn btn-secondary' %>
+</section>
 
 <%= javascript_pack_tag "location_autocomplete" %>
