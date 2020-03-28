@@ -12,6 +12,8 @@ alice:
   location: "Oxford Street, London, UK"
   description: "Happy go lucky girl. Loves long walks on the beach and having fun."
   telephone: 0123456789
+  latitude: 0.1234
+  longitude: -5.4321
 
 jared:
   id: 2

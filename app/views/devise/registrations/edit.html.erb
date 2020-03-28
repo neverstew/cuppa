@@ -45,6 +45,8 @@
         type="text" 
         placeholder="Start typing here" 
         value="<%= resource.location %>"/>
+      <%= f.hidden_field :latitude, value: resource.latitude %>
+      <%= f.hidden_field :longitude, value: resource.longitude %>
     </div>
 
     <div class="field mb-4">
