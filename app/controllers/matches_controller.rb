@@ -8,6 +8,8 @@ class MatchesController < ApplicationController
 
     if current_user.seeker? then
       @matches = User.helper.available.limit(100).select{ |user| user.within(5000, current_user) }
+    else
+      @matches = []
     end
   end
 end

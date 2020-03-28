@@ -9,6 +9,10 @@ class EditProfileTest < ActionDispatch::IntegrationTest
     sign_in alice
     get edit_user_registration_path
 
+    assert_select '#user_name' do
+      assert_select "[value=?]", alice.name
+    end
+
     assert_select '#user_email' do
       assert_select "[value=?]", alice.email
     end
@@ -31,6 +35,7 @@ class EditProfileTest < ActionDispatch::IntegrationTest
 
     alice.update_attributes(
       email: 'newemail@example.com',
+      name: 'New Name',
       role: :helper,
       location: 'New location',
       description: 'New description',
@@ -38,6 +43,10 @@ class EditProfileTest < ActionDispatch::IntegrationTest
     )
 
     get edit_user_registration_path
+
+    assert_select '#user_name' do
+      assert_select "[value=?]", 'New Name'
+    end
 
     assert_select '#user_email' do
       assert_select "[value=?]", 'newemail@example.com'
@@ -66,6 +75,7 @@ class EditProfileTest < ActionDispatch::IntegrationTest
     sign_in alice
     put user_registration_path, params: {
       user: {
+        name: 'Legally Different',
         email: 'newemail@example.com',
         role: :helper,
         location: 'New location',
@@ -80,6 +90,7 @@ class EditProfileTest < ActionDispatch::IntegrationTest
     assert_response :redirect
 
     alice.reload
+    assert_equal 'Legally Different', alice.name
     assert_equal 'newemail@example.com', alice.email
     assert_equal "helper", alice.role
     assert_equal 'New location', alice.location

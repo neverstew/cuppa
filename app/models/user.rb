@@ -12,5 +12,5 @@ class User < ApplicationRecord
   
   validates_presence_of :role
 
-  scope :available, -> { where.not(location: nil, completed_onboarding_at: nil) }
+  scope :available, -> { where.not(name: nil, location: nil, completed_onboarding_at: nil) }
 end

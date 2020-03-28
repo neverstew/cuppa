@@ -45,6 +45,7 @@ class UserTest < ActiveSupport::TestCase
     for i in 1..4 do
       User.create(
         email: "user-#{i}-completed@example.com",
+        name: i,
         password: "password-#{i}",
         role: :seeker,
         location: "somewhere",
