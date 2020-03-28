@@ -40,4 +40,35 @@ class UserTest < ActiveSupport::TestCase
 
     assert user.helper?
   end
+
+  test '.available' do
+    for i in 1..4 do
+      User.create(
+        email: "user-#{i}-completed@example.com",
+        password: "password-#{i}",
+        role: :seeker,
+        location: "somewhere",
+        completed_onboarding_at: Time.now
+      )
+      User.create(
+        email: "user-#{i}-partialcomplete@example.com",
+        password: "password-#{i}",
+        role: :seeker,
+        completed_onboarding_at: Time.now
+      )
+      User.create(
+        email: "user-#{i}-partiallocation@example.com",
+        password: "password-#{i}",
+        role: :seeker,
+        location: 'somewhere'
+      )
+      User.create(
+        email: "user-#{i}-new@example.com",
+        password: "password-#{i}",
+        role: :seeker
+      )
+    end
+
+    assert_equal User.available.count, 4 + 1 #for fixture user jared
+  end
 end

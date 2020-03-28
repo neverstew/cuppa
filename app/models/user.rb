@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_one_attached :avatar
   
   validates_presence_of :role
+
+  scope :available, -> { where.not(location: nil, completed_onboarding_at: nil) }
 end
