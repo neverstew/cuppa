@@ -71,4 +71,18 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal User.available.count, 4 + 1 #for fixture user jared
   end
+
+  test 'within should return true if two points under the specified distance away' do
+    alice = users(:alice)
+    place = OpenStruct.new(latitude: alice.latitude + 0.001, longitude: alice.longitude + 0.001)
+    
+    assert alice.within(1000, place)
+  end
+
+  test 'within should return false if two points over the specified distance away' do
+    alice = users(:alice)
+    place = OpenStruct.new(latitude: alice.latitude + 0.001, longitude: alice.longitude + 0.001)
+    
+    assert !alice.within(100, place)
+  end
 end
