@@ -1,0 +1,12 @@
+.log-in, .sign-up {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  &__inner {
+    width: 100%;
+    max-width: 400px;
+  }
+}

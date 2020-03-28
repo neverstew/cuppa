@@ -1,4 +1,7 @@
 <div class="navigation navigation--landing-page">
   <%= react_component("shared/Navbar", { userLoggedIn: user_signed_in?, currentUser: current_user, isTransparent: true }) %>
 </div>
-<%= react_component("shared/VideoHero", { greeting: "Hello from Craig." }) %>
+<%= react_component("shared/VideoHero", {title: t('splash_page.slide_title'), subtitle: t('splash_page.slide_subtitle')}) %>
+<%= react_component("shared/TextBlock", {title: t('splash_page.intro_title'), content: t('splash_page.intro_content'), image: image_url("tea-icon.png")}) %>
+<%= react_component("shared/RoleCards", {cards: t('splash_page.role_cards')}) %>
+
