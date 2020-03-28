@@ -34,4 +34,14 @@ class SignUpTest < ActionDispatch::IntegrationTest
 
     assert_select 'h1', 'Users#show'
   end
+
+  test 'log in/out links show correctly' do
+    get new_user_session_path
+    assert_select 'a', 'Log in'
+
+    sign_in users(:alice)
+    get '/'
+    follow_redirect!
+    assert_select 'a', 'Log out'
+  end
 end
