@@ -10,6 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
+    <script type="text/javascript" src=<%= "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.dig(:maps, :api_key)}&libraries=places"%>></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway|Spicy+Rice&display=swap" rel="stylesheet">
 
   </head>
@@ -21,11 +22,14 @@
           <a href="/" class="navbar-brand">
             <%= image_tag("cuppa-light.png", :class => "navigation__logo") %>
           </a>
-          <% if user_signed_in? %>
-            <%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'btn btn-primary') %>
-          <% else %>
-            <%= link_to('Log in', new_user_session_path, class: 'btn btn-primary') %>
-          <% end %>
+          <div>
+            <%= link_to('Profile', edit_user_registration_path, class: 'btn btn-link text-light') %>
+            <% if user_signed_in? %>
+              <%= link_to('Log out', destroy_user_session_path, method: :delete, class: 'btn btn-link text-light') %>
+            <% else %>
+              <%= link_to('Log in', new_user_session_path, class: 'btn btn-primary') %>
+            <% end %>
+          </div>
       </nav>
     </div>
     <% if notice %>
@@ -34,7 +38,15 @@
     <% if alert %>
     <%= react_component("shared/Toast", {message: alert}) %>
     <% end %>
-    <%= yield %>
+    <div class="main-container pt-3">
+      <main class="container">
+        <%= yield %>
+      </main>
+      <footer class="container-fluid mt-3 py-5 bg-light">
+        <small class="d-block text-center">Made with love for our own communities.</small>
+        <small class="d-block text-center">Part of the <a class="text-primary" href="https://covid-global-hackathon.devpost.com/">COVID19 Global Online Hackathon</a>.</small>
+      </footer>
+    </div>
   </body>
 
 </html>
