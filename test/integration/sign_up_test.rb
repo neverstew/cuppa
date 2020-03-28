@@ -32,7 +32,7 @@ class SignUpTest < ActionDispatch::IntegrationTest
     get '/'
     follow_redirect!
     follow_redirect!
-    assert_select 'h2', 'Edit User'
+    assert_select 'h2', 'Edit Profile'
   end
 
   test 'log in/out links show correctly' do

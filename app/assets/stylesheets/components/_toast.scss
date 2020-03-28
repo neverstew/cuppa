@@ -1,0 +1,25 @@
+.toast-notification {
+  position: fixed;
+  width: 90%;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+
+  @media (min-width: 768px){
+    top: 1rem;
+    right: 1rem;
+    left: unset;
+    bottom: unset;
+    transform: none;
+  }
+
+  &__header {
+    background-color: rgba(#173753, 0.5)!important;
+    color: #ffffff!important;
+  }
+
+  &[data-toast-visible="false"] {
+    display: none;
+  }
+}

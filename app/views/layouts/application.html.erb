@@ -33,10 +33,10 @@
       </nav>
     </div>
     <% if notice %>
-    <p class="notice"><%= notice %></p>
+    <%= react_component("shared/Toast", {message: notice}) %>
     <% end %>
     <% if alert %>
-    <p class="alert"><%= alert %></p>
+    <%= react_component("shared/Toast", {message: alert}) %>
     <% end %>
     <div class="main-container pt-3">
       <main class="container">
