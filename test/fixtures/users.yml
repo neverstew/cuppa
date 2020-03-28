@@ -9,11 +9,11 @@ alice:
   email: alice@example.com
   encrypted_password: "$2a$11$BNFFiTGw0Yxu7U.TQKxlhu2oVM2gNujQwpxdhtcx9/DlZz0oDh.ri" #aliceiskewl
   role: seeker
-  location: "Oxford Street, London, UK"
+  location: "Royal Northern College of Music, Oxford Road, Manchester, UK"
   description: "Happy go lucky girl. Loves long walks on the beach and having fun."
   telephone: 0123456789
-  latitude: 0.1234
-  longitude: -5.4321
+  latitude: 53.4684331
+  longitude: -2.2365536
 
 jared:
   id: 2
@@ -24,3 +24,5 @@ jared:
   description: "If there anything better than a can o' Carling?"
   telephone: 0123456789
   completed_onboarding_at: '2020-01-01T09:00:00Z'
+  latitude: 53.4657029
+  longitude: -2.2332616
