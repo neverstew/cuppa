@@ -4,6 +4,14 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :avatar %><br />
+    <% if resource.avatar.attached? %>
+      <%= image_tag resource.avatar.variant(resize: "320x320"), class: 'img-fluid rounded-circle', alt: :avatar %>
+    <% end %>
+    <%= f.file_field :avatar, accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -15,11 +23,11 @@
   <div class="field">
     <%= f.label :role %><br />
     <div>
-      <%= radio_button :user, :role, :seeker, autocomplete: "role" %>
+      <%= radio_button :user, :role, :seeker, autocomplete: "role", checked: resource.seeker? %>
       <em>I'm seeking help</em>
     </div>
     <div>
-      <%= radio_button :user, :role, :helper, autocomplete: "role" %>
+      <%= radio_button :user, :role, :helper, autocomplete: "role", checked: resource.helper? %>
       <em>I'm offering help</em>
     </div>
   </div>

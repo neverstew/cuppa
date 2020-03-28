@@ -5,7 +5,7 @@ import Logo from '../../../assets/images/cuppa-light.png'
 const Navigation = ({userLoggedIn, currentUser, isTransparent}) => {
   let bgColor = isTransparent === true ? 'transparent' : 'primary';
   function handleLogin(){
-    window.location.replace('/login')
+    window.location.replace('/users/login')
   }
   return (
     <Navbar className="navigation" bg={bgColor} expand="lg">

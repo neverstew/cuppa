@@ -3,7 +3,7 @@ import { Container, Button } from 'react-bootstrap';
 
 const VideoHero = ({title, subtitle}) => {
   function handleSignUp(){
-    window.location.replace('/sign_up')
+    window.location.replace('/users/sign_up')
   }
   return (
   <header className="video-hero">
