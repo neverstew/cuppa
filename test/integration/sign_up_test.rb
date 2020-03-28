@@ -10,10 +10,10 @@ class SignUpTest < ActionDispatch::IntegrationTest
     get new_user_registration_path
     assert_response :success
 
-    post '/'
+    post '/users'
     assert_select '#error_explanation', 1
 
-    post '/', params: { 
+    post '/users', params: { 
       user: {
         email: 'someemail@example.com',
         password: 'bigboiipass',
