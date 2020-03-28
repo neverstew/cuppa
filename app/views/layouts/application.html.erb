@@ -38,7 +38,15 @@
     <% if alert %>
     <p class="alert"><%= alert %></p>
     <% end %>
-    <%= yield %>
+    <div class="main-container pt-3">
+      <main class="container">
+        <%= yield %>
+      </main>
+      <footer class="container-fluid mt-3 py-5 bg-light">
+        <small class="d-block text-center">Made with love for our own communities.</small>
+        <small class="d-block text-center">Part of the <a class="text-primary" href="https://covid-global-hackathon.devpost.com/">COVID19 Global Online Hackathon</a>.</small>
+      </footer>
+    </div>
   </body>
 
 </html>
