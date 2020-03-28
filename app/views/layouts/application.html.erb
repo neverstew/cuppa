@@ -29,10 +29,10 @@
       </nav>
     </div>
     <% if notice %>
-    <p class="notice"><%= notice %></p>
+    <%= react_component("shared/Toast", {message: notice}) %>
     <% end %>
     <% if alert %>
-    <p class="alert"><%= alert %></p>
+    <%= react_component("shared/Toast", {message: alert}) %>
     <% end %>
     <%= yield %>
   </body>
