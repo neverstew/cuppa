@@ -17,9 +17,14 @@ class EditProfileTest < ActionDispatch::IntegrationTest
       assert_select "[checked=?]", "checked"
     end
 
+    assert_select '#user_location' do
+      assert_select "[value=?]", alice.location
+    end
+
     alice.update_attributes(
       email: 'newemail@example.com',
-      role: :helper
+      role: :helper,
+      location: 'New location'
     )
 
     get edit_user_registration_path
@@ -31,6 +36,10 @@ class EditProfileTest < ActionDispatch::IntegrationTest
     assert_select '#user_role_seeker[checked]', 0
     assert_select '#user_role_helper' do
       assert_select "[checked=?]", "checked"
+    end
+
+    assert_select '#user_location' do
+      assert_select "[value=?]", "New location"
     end
   end
 end

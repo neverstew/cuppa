@@ -34,7 +34,13 @@
 
   <div class="field">
     <%= f.label :location %><br />
-    <input id="location-input" name="user[location]" class="controls" type="text" placeholder="Start typing here" />
+    <input 
+      id="user_location" 
+      name="user[location]" 
+      class="controls" 
+      type="text" 
+      placeholder="Start typing here" 
+      value="<%= resource.location %>"/>
   </div>
 
   <div class="field">

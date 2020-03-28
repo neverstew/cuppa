@@ -8,5 +8,5 @@ var options = {
   bounds: defaultBound
 }
 
-var input = document.getElementById('location-input');
+var input = document.getElementById('user_location');
 var autocomplete = new google.maps.places.Autocomplete(input, options);
