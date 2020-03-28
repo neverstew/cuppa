@@ -16,7 +16,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    super
+    super do |resource|
+      @resource.avatar.attach(params[:avatar])
+    end
   end
 
   # PUT /resource
