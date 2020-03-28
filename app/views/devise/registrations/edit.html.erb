@@ -15,11 +15,11 @@
   <div class="field">
     <%= f.label :role %><br />
     <div>
-      <%= radio_button :user, :role, :seeker, autocomplete: "role" %>
+      <%= radio_button :user, :role, :seeker, autocomplete: "role", checked: resource.seeker? %>
       <em>I'm seeking help</em>
     </div>
     <div>
-      <%= radio_button :user, :role, :helper, autocomplete: "role" %>
+      <%= radio_button :user, :role, :helper, autocomplete: "role", checked: resource.helper? %>
       <em>I'm offering help</em>
     </div>
   </div>
