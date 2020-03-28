@@ -4,7 +4,7 @@ import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 const Navigation = ({userLoggedIn, currentUser, isTransparent}) => {
   let bgColor = isTransparent === true ? 'transparent' : 'primary';
   function handleLogin(){
-    window.location.replace('/login')
+    window.location.replace('/users/login')
   }
   return (
     <Navbar className="navigation" bg={bgColor} expand="lg">

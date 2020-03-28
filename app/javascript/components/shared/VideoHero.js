@@ -3,7 +3,7 @@ import { Container, Nav, NavDropdown, Button } from 'react-bootstrap';
 
 const VideoHero = ({children}) => {
   function handleSignUp(){
-    window.location.replace('/sign_up')
+    window.location.replace('/users/sign_up')
   }
   return (
   <header className="video-hero">
