@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'matches/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static#index'
   
@@ -7,4 +6,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: [:show, :edit]
+  resources :matches, only: [:index]
 end
