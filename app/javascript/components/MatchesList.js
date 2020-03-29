@@ -1,26 +1,49 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import Match from "./Match";
 
 const MatchesList = ({ matches }) => {
-  if (matches.length === 0) {
+  const [currentMatch, setCurrentMatch] = useState(0);
+
+  if (matches.length === 0 || currentMatch > matches.length-1) {
     return (
       <div className="container-fluid mt-5">
         <p>
-          There isn't anyone to match with in your area yet. Please check back
-          soon!
+          There isn't anyone else to match with in your area yet. Please check
+          back soon!
         </p>
       </div>
     );
   }
 
+  const handleMatch = useCallback(
+    (match, type) => {
+      Rails.ajax({
+        url: "/matches/match",
+        type: "post",
+        data: {
+          id: match.id,
+          type
+        },
+        success: () => {
+          console.log(type, "recorded for user", match.id);
+          setCurrentMatch(currentMatch + 1);
+        },
+        error: err => {
+          console.error(type, "match handler failed for user", match.id, "Error: ", err);
+          setCurrentMatch(currentMatch + 1);
+        }
+      });
+    },
+    [matches]
+  );
+
+  const {
+    table: { match, avatar }
+  } = matches[currentMatch];
   return (
-    <ul id="matches" className="list d-flex flex-column w-100 mt-5 mb-5">
-      {matches.map(({ table: { match, avatar }}) => (
-        <li key={match.id} className="p-3 p-md-5">
-          <Match match={match} avatar={avatar} />
-        </li>
-      ))}
-    </ul>
+    <div id="matches" className="mt-5 mb-5">
+      <Match match={match} avatar={avatar} handleMatch={handleMatch} />
+    </div>
   );
 };
 
