@@ -1,24 +1,43 @@
-# README
+# cuppa
+![Build status](https://github.com/matt-l-w/cuppa/workflows/build/badge.svg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is source code for [cuppa](https://covid-cuppa.herokuapp.com). To find out
+more about cuppa, visit the website. This README will stick to development-related
+aspects of the project.
 
-Things you may want to cover:
+## Architecture
 
-* Ruby version
+The app is hosted on Heroku but also makes use of:
+* AWS S3 for static file hosting in production
+* Google Maps APIs for location-related information
 
-* System dependencies
+This is a Rails app, with a sprinkling of React for the more dynamic front-end components.
 
-* Configuration
+## Development
+### Contributing
+This repository is absolutely up for contribution. Please read [our guidance](contributing.md) for contributing first.
 
-* Database creation
+### Locally
+Requirements:
+1. Ruby 2.4.9
+1. Node 12.x
+1. Postgres
 
-* Database initialization
+To install and run the app locally, run 
 
-* How to run the test suite
+```
+bundle install
+yarn install
+rails db:create
+rails db:migrate
+rails server
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+This requires you have a postgres instance running and accessible on port 5432.
 
-* Deployment instructions
+### CI
+On the creation of a PR, a pipeline will launch that:
+1. runs the tests
+1. spins up a testing environment on Heroku
 
-* ...
+This should be enough to verify your app is ready for deployment to production.
