@@ -17,7 +17,7 @@ class MatchesController < ApplicationController
         .select{ |user| user.within?(max_distance, current_user) }
         .sort{ |a, b| a.distance_to(b) }
     else
-      @matches = []
+      render 'helper'
     end
   end
 
