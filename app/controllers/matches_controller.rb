@@ -13,4 +13,21 @@ class MatchesController < ApplicationController
       @matches = []
     end
   end
+
+  def create
+    other_user = User.find(default_params[:id])
+    render status: 403, error: "Invalid match." and return if other_user.nil?
+
+    match = Match.new(user_a: current_user, user_b: other_user, relationship: default_params[:relationship])
+    if match.save then
+      head :created
+    else
+      render status: 403, error: "Invalid match."
+    end
+  end
+
+  private
+    def default_params
+      params.require(:match).permit(:id, :relationship)
+    end
 end

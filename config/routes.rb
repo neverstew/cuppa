@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   devise_for :users, path: 'users', path_names: { sign_in: 'login', sign_out: 'logout'}, controllers: {
     registrations: 'users/registrations'
   }
-  resources :matches, only: [:index]
+  resources :matches, only: [:index, :create]
 end

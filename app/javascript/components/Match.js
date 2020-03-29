@@ -24,7 +24,7 @@ const Match = ({ match, avatar, handleMatch }) => {
             <button className="btn btn-danger mr-3 mb-3" onClick={() => handleMatch(match, 'dismissed')}>✋ No thanks</button>
           </div>
           <div className="column">
-            <button className="btn btn-success mr-3" onClick={() => handleMatch(match, 'match')}>
+            <button className="btn btn-success mr-3" onClick={() => handleMatch(match, 'matched')}>
               ❤️ Sounds great!
             </button>
           </div>

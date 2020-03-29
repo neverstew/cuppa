@@ -9,6 +9,7 @@ class User < ApplicationRecord
   enum role: [:seeker, :helper]
 
   has_one_attached :avatar
+  has_many :matches, foreign_key: :user_a_id, dependent: :destroy
   
   validates_presence_of :role
 

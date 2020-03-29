@@ -86,4 +86,17 @@ class UserTest < ActiveSupport::TestCase
     
     assert !alice.within(100, place)
   end
+
+  test 'has matches' do
+    gina = users(:gina)
+
+    assert_equal users(:jared), gina.matches.first.user_b
+  end
+
+  test 'can scope matches by relationship' do
+    gina = users(:gina)
+    matches = [matches(:gina_evan_matched)]
+
+    assert_equal matches, gina.matches.matched
+  end
 end
