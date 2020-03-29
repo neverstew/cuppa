@@ -9,7 +9,10 @@ class User < ApplicationRecord
   enum role: [:seeker, :helper]
 
   has_one_attached :avatar
+  # matches when this user chooses another user
   has_many :matches, foreign_key: :user_a_id, dependent: :destroy
+  # matched when this user was chosen by another user
+  has_many :matched, class_name: "Match", foreign_key: :user_b_id, dependent: :destroy
   
   validates_presence_of :role
 

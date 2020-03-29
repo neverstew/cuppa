@@ -99,4 +99,11 @@ class UserTest < ActiveSupport::TestCase
 
     assert_equal matches, gina.matches.matched
   end
+
+  test 'has users that matched them' do
+    evan = users(:evan)
+    matched = [matches(:gina_evan_matched)]
+
+    assert_equal matched, evan.matched
+  end
 end
