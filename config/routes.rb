@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :matches, only: [:index, :create]
+  patch :matches, to: 'matches#update'
 end

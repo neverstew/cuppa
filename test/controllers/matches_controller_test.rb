@@ -28,4 +28,14 @@ class MatchesControllerTest < ActionDispatch::IntegrationTest
     assert_equal [users(:stacey)], @controller.instance_variable_get('@matches')
   end
 
+  test 'should be able to update matches' do
+    gina = users(:gina)
+    evan = users(:evan)
+
+    sign_in gina
+    patch '/matches', xhr: true, as: :json, params: { match: { id: evan.id, relationship: 'dismissed' }}
+
+    assert_response :ok
+    assert Match.find_by(user_a: gina, user_b: evan).dismissed?
+  end
 end
