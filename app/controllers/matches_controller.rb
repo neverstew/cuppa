@@ -15,6 +15,7 @@ class MatchesController < ApplicationController
         .where.not(id: previous_matches)
         .limit(100)
         .select{ |user| user.within?(max_distance, current_user) }
+        .sort{ |a, b| a.distance_to(b) }
     else
       @matches = []
     end

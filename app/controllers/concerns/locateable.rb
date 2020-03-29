@@ -2,10 +2,14 @@ module Locateable
   extend ActiveSupport::Concern
 
   def within?(range, other)
+    distance_to(other) < range
+  end
+
+  def distance_to(other)
     this_point = [self.latitude, self.longitude]
     other_point = [other.latitude, other.longitude]
 
-    distance(this_point, other_point) < range
+    distance(this_point, other_point)
   end
 
   private
