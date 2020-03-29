@@ -5,4 +5,13 @@ const Matches = ({ currentMatches, upcomingMatches }) => {
   return <MatchesCarousel matches={upcomingMatches} />;
 };
 
-export default Matches;
+const withMatchesLayout = (WrappedComponent) => props => {
+  return (
+    <div>
+      <h1>Matches</h1>
+      <WrappedComponent {...props} />
+    </div>
+  );
+}
+
+export default withMatchesLayout(Matches);
