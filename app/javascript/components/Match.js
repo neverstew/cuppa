@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 
 const Match = ({ match, avatar, handleMatch }) => {
   return (
@@ -11,7 +11,7 @@ const Match = ({ match, avatar, handleMatch }) => {
         />
       ) : (
         <img
-          src="https://via.placeholder.com/728x90.png?text=No+Picture+Provided"
+          src="https://via.placeholder.com/728x728.png?text=No+Picture+Provided"
           className="card-img-top"
           alt={`${match.name} provided no picture`}
         />
