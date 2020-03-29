@@ -33,6 +33,21 @@ class MatchesController < ApplicationController
     end
   end
 
+  def update
+    other_user = User.find(default_params[:id])
+    render status: 403, error: "Invalid match." and return if other_user.nil?
+    
+    match = Match.find_by(user_a: current_user, user_b: other_user)
+    render status: 403, error: "Invalid match." and return if match.nil?
+
+    match.relationship = default_params[:relationship]
+    if match.save then
+      head :ok
+    else
+      render status: 403, error: "Invalid match."
+    end
+  end
+
   private
     def default_params
       params.require(:match).permit(:id, :relationship)
