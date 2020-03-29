@@ -70,7 +70,7 @@ class UserTest < ActiveSupport::TestCase
       )
     end
 
-    assert_equal User.available.count, 4 + 1 #for fixture user jared
+    assert_equal User.available.count, 4 + 4 #for fixture users
   end
 
   test 'within should return true if two points under the specified distance away' do
