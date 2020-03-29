@@ -6,15 +6,19 @@
 
 alice:
   id: 1
+  name: Alice Petty
   email: alice@example.com
   encrypted_password: "$2a$11$BNFFiTGw0Yxu7U.TQKxlhu2oVM2gNujQwpxdhtcx9/DlZz0oDh.ri" #aliceiskewl
   role: seeker
-  location: "Oxford Street, London, UK"
+  location: "Royal Northern College of Music, Oxford Road, Manchester, UK"
   description: "Happy go lucky girl. Loves long walks on the beach and having fun."
   telephone: 0123456789
+  latitude: 53.4684331
+  longitude: -2.2365536
 
 jared:
   id: 2
+  name: Jared Harkener
   email: jared@example.com
   encrypted_password: "$2a$11$BNFFiTGw0Yxu7U.TQKxlhu2oVM2gNujQwpxdhtcx9/DlZz0oDh.ri" #aliceiskewl
   role: helper
@@ -22,3 +26,44 @@ jared:
   description: "If there anything better than a can o' Carling?"
   telephone: 0123456789
   completed_onboarding_at: '2020-01-01T09:00:00Z'
+  latitude: 53.4657029
+  longitude: -2.2332616
+
+evan:
+  id: 3
+  name: Evan Wan
+  email: evan@example.com
+  encrypted_password: "$2a$11$BNFFiTGw0Yxu7U.TQKxlhu2oVM2gNujQwpxdhtcx9/DlZz0oDh.ri" #aliceiskewl
+  role: helper
+  location: "Oxford Road, Manchester, UK"
+  description: "Hi, I'm Evan and I like to talk so I've written a really long description about me that you can read in about 50 years if you have the time. It doesn't really say much but that's a good representation of me!"
+  telephone: 0123456789
+  completed_onboarding_at: '2020-01-02T09:00:00Z'
+  latitude: 53.4657030
+  longitude: -2.2332617
+
+stacey:
+  id: 4
+  name: Stacey Malone
+  email: stacey@example.com
+  encrypted_password: "$2a$11$BNFFiTGw0Yxu7U.TQKxlhu2oVM2gNujQwpxdhtcx9/DlZz0oDh.ri" #aliceiskewl
+  role: helper
+  location: "Oxford Road, Manchester, UK"
+  description: "In isolation. Going crazy. Send me cat pics."
+  telephone: 0123456789
+  completed_onboarding_at: '2020-01-03T09:00:00Z'
+  latitude: 53.4657030
+  longitude: -2.2332617
+
+gina:
+  id: 5
+  name: Gina Petty
+  email: gina@example.com
+  encrypted_password: "$2a$11$BNFFiTGw0Yxu7U.TQKxlhu2oVM2gNujQwpxdhtcx9/DlZz0oDh.ri" #aliceiskewl
+  role: seeker
+  location: "Royal Northern College of Music, Oxford Road, Manchester, UK"
+  description: "Alice's sister. Just checking there's no creeps."
+  telephone: 0123456789
+  completed_onboarding_at: '2020-01-01T09:00:00Z'
+  latitude: 53.4684331
+  longitude: -2.2365536

@@ -10,3 +10,13 @@ var options = {
 
 var input = document.getElementById('user_location');
 var autocomplete = new google.maps.places.Autocomplete(input, options);
+autocomplete.setFields(['geometry']);
+autocomplete.addListener('place_changed', function() {
+  var place = autocomplete.getPlace();
+  var geometry = place.geometry;
+  var latitude = geometry.location.lat();
+  var longitude = geometry.location.lng();
+
+  document.getElementById('user_latitude').value = latitude;
+  document.getElementById('user_longitude').value = longitude;
+})

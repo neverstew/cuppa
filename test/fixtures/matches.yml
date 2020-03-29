@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+gina_jared_dismissed:
+  user_a_id: 5
+  user_b_id: 2
+  relationship: 0 
+
+gina_evan_matched:
+  user_a_id: 5
+  user_b_id: 3
+  relationship: 1

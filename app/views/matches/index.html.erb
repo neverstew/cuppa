@@ -1,2 +1,2 @@
-<h1>Matches#index</h1>
-<p>Find me in app/views/matches/index.html.erb</p>
+<h1>Matches</h1>
+<%= react_component 'MatchesList', matches: @matches.map{ |match| as_react_prop(match) } %>

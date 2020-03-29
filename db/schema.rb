@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_28_164103) do
+ActiveRecord::Schema.define(version: 2020_03_29_115822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2020_03_28_164103) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.bigint "user_a_id", null: false
+    t.bigint "user_b_id", null: false
+    t.integer "relationship"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_a_id", "user_b_id"], name: "by_user_pair", unique: true
+    t.index ["user_a_id"], name: "index_matches_on_user_a_id"
+    t.index ["user_b_id"], name: "index_matches_on_user_b_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -49,9 +60,14 @@ ActiveRecord::Schema.define(version: 2020_03_28_164103) do
     t.text "description"
     t.text "telephone"
     t.datetime "completed_onboarding_at"
+    t.float "latitude"
+    t.float "longitude"
+    t.text "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "matches", "users", column: "user_a_id"
+  add_foreign_key "matches", "users", column: "user_b_id"
 end

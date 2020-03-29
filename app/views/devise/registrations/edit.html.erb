@@ -6,6 +6,11 @@
   <section class='mb-5'>
     <h3>Your Details</h3>
     <div class="field mb-4">
+      <%= f.label :name, class: 'd-block text-uppercase font-weight-bold mb-0' %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <div class="field mb-4">
       <%= f.label :avatar, class: 'd-block text-uppercase font-weight-bold mb-0' %>
       <% if resource.avatar.attached? %>
         <%= image_tag resource.avatar.variant(resize: "320x320"), class: 'img-fluid rounded-circle', alt: :avatar %>
@@ -15,7 +20,7 @@
 
     <div class="field mb-4">
       <%= f.label :email, class: 'd-block text-uppercase font-weight-bold mb-0' %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autocomplete: "email" %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -45,6 +50,8 @@
         type="text" 
         placeholder="Start typing here" 
         value="<%= resource.location %>"/>
+      <%= f.hidden_field :latitude, value: resource.latitude %>
+      <%= f.hidden_field :longitude, value: resource.longitude %>
     </div>
 
     <div class="field mb-4">

@@ -21,4 +21,11 @@ class MatchesControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h2', 'Edit Profile'
   end
 
+  test 'should not include previous matches' do
+    sign_in users(:gina)
+    get matches_path
+
+    assert_equal [users(:stacey)], @controller.instance_variable_get('@matches')
+  end
+
 end
