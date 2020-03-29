@@ -2,11 +2,12 @@
   list-style-type: none;
   padding-left: 0;
 
+  li {
+    max-width: 48rem;
+  }
+  
   .card {
-    min-width: 18rem;
-    max-width: 18rem;
-    min-height: 18rem;
-
+    box-shadow: 5px 8px 20px #00000010;
     .card-img-top {
       min-height: 9rem;
     }
