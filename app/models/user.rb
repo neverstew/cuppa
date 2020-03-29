@@ -4,10 +4,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
+  :recoverable, :rememberable, :validatable
+  
   enum role: [:seeker, :helper]
-
+  
   has_one_attached :avatar
   # matches when this user chooses another user
   has_many :matches, foreign_key: :user_a_id, dependent: :destroy
