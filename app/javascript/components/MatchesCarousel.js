@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import Match from "./Match";
 
-const MatchesList = ({ matches }) => {
+const MatchesCarousel = ({ matches }) => {
   const [currentMatch, setCurrentMatch] = useState(0);
 
   const handleMatch = useCallback((match, type) => {
@@ -60,4 +60,4 @@ const MatchesList = ({ matches }) => {
   );
 };
 
-export default MatchesList;
+export default MatchesCarousel;
