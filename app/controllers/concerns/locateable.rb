@@ -1,7 +1,7 @@
 module Locateable
   extend ActiveSupport::Concern
 
-  def within(range, other)
+  def within?(range, other)
     this_point = [self.latitude, self.longitude]
     other_point = [other.latitude, other.longitude]
 
