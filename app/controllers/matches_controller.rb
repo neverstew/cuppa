@@ -8,7 +8,13 @@ class MatchesController < ApplicationController
 
     if current_user.seeker? then
       max_distance = ENV['MAX_DISTANCE'] ? ENV['MAX_DISTANCE'].to_i : 5000
-      @matches = User.helper.available.limit(100).select{ |user| user.within(max_distance, current_user) }
+      previous_matches = current_user.matches.pluck(:user_b_id)
+      @matches = User
+        .available
+        .helper
+        .where.not(id: previous_matches)
+        .limit(100)
+        .select{ |user| user.within(max_distance, current_user) }
     else
       @matches = []
     end
