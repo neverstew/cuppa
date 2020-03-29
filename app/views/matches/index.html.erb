@@ -1,3 +1,4 @@
 <%= react_component 'Matches',
   currentMatches: current_user.matches.map{ |match| as_react_prop(match.user_b) },
-  upcomingMatches: @matches.map{ |match| as_react_prop(match) } %>
+  upcomingMatches: @matches.map{ |match| as_react_prop(match) },
+  showUpcoming: current_user.seeker? %>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MatchesCarousel from "./MatchesCarousel";
 import MatchListWrapper from './MatchList';
 
@@ -10,7 +10,7 @@ const Matches = ({ active, currentMatches, upcomingMatches }) => {
   return <MatchListWrapper matches={currentMatches} />;
 };
 
-const MatchesTabs = ({ active, navigate }) => {
+const MatchesTabs = ({ active, navigate, showUpcoming }) => {
   const activeClass = tab => active === tab ? 'btn-dark text-light' : 'btn-light';
 
   return (
@@ -18,9 +18,11 @@ const MatchesTabs = ({ active, navigate }) => {
       <div className='column col-6 pl-0 pr-0'>
         <a className={`w-100 btn pt-2 pr-4 pb-2 pl-4 ${activeClass('current')}`} onClick={() => navigate('current')}>Current</a>
       </div>
-      <div className='column col-6 pl-0 pr-0'>
-        <a className={`w-100 btn pt-2 pr-4 pb-2 pl-4 ${activeClass('upcoming')}`} onClick={() => navigate('upcoming')}>New</a>
-      </div>
+      { showUpcoming && (
+        <div className='column col-6 pl-0 pr-0'>
+          <a className={`w-100 btn pt-2 pr-4 pb-2 pl-4 ${activeClass('upcoming')}`} onClick={() => navigate('upcoming')}>New</a>
+        </div>
+      )}
     </div>
   )
 }
@@ -31,7 +33,7 @@ const withMatchesLayout = (WrappedComponent) => props => {
   return (
     <div>
       <h1>Matches</h1>
-      <MatchesTabs active={tab} navigate={navigate} />
+      <MatchesTabs active={tab} navigate={navigate} showUpcoming={props.showUpcoming}/>
       <WrappedComponent active={tab} {...props} />
     </div>
   );
