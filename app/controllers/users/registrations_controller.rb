@@ -15,16 +15,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  def edit
-    super do |resource|
-      @resource.avatar.attach(params[:avatar])
-    end
-  end
-
-  # PUT /resource
-  # def update
+  # def edit
   #   super
   # end
+
+  # PUT /resource
+  def update
+    super do |resource|
+      @resource.avatar.attach(params[:avatar]) if params[:avatar]
+    end
+  end
 
   # DELETE /resource
   # def destroy
