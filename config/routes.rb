@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   }
   resources :matches, only: [:index, :create]
   patch :matches, to: 'matches#update'
+  get 'onboarding/:id', to: 'onboarding#show', as: :onboarding
 end
