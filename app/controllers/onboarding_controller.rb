@@ -2,6 +2,7 @@ class OnboardingController < ApplicationController
   before_action :authenticate_user!
 
   def show
+    redirect_to matches_path if current_user.completed_onboarding_at?
     @id = current_user.id
   end
 
