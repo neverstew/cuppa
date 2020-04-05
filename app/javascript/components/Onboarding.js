@@ -205,12 +205,14 @@ const OnboardingPage = () => {
       return (
         <div className="feedback-wrapper">
           <p className="text-success">Success!</p>
+          <p className="text-muted">Let's get the brews in.</p>
         </div>
       );
     case "error":
       return (
         <div className="feedback-wrapper">
           <p className="text-danger">Sorry, something went wrong...</p>
+          <button className="btn btn-primary" onClick={() => setReadyToSubmit(true)}>Try again</button>
         </div>
       );
     default:
