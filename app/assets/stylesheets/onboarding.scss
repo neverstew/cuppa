@@ -14,24 +14,30 @@
 
   .onboarding{
     &-container {
-      max-width: 900px;
+      max-width: 32rem;
       height: 100%;
+      
+      @media (min-width: 576px){
+        padding-top: 8rem;
+      }
     }
     
     &-form {
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
 
     &-body {
-      flex-grow: 1;
+      @media (max-width: 576px){
+        flex-grow: 1;
+      }
     }
 
     &-footer {
       display: flex;
       justify-content: center;
+      margin: 1rem;
     }
 
   }
