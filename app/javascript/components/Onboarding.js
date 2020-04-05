@@ -17,6 +17,7 @@ const OnboardingPage = () => {
   const [currentValue, setCurrentValue] = useState("");
   const [canContinue, setCanContinue] = useState(false);
   const [readyToSubmit, setReadyToSubmit] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     if (currentValue && currentValue.length > 0 && currentValue.trim() !== "") {
@@ -68,6 +69,7 @@ const OnboardingPage = () => {
           setReadyToSubmit(false);
           console.log("Onboarding completed.");
           setCurrentPage("success");
+          setSuccess(true);
         },
         error: (err) => {
           setReadyToSubmit(false);
@@ -77,6 +79,14 @@ const OnboardingPage = () => {
       });
     }
   });
+
+  useEffect(() => {
+    if(success) {
+      setTimeout(() => {
+        window.location.replace('/');
+      }, 2000)
+    }
+  }, [success])
 
   switch (currentPage) {
     case "welcome":
