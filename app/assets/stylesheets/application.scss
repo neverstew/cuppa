@@ -18,11 +18,58 @@
 @import "components/*";
 @import "layouts/*";
 
- //Bootstrap
- $theme-colors: (
-    "primary": #173753,
-    "transparent": transparent
+//Bootstrap
+$theme-colors: (
+  "primary": #173753,
+  "transparent": transparent,
 );
-$font-family-base: 'Raleway', sans-serif;
+$font-family-base: "Raleway", sans-serif;
 $border-radius: 2px;
 @import "bootstrap/scss/bootstrap";
+
+// Forms
+input:not([type="radio"]),
+textarea {
+  border-radius: 4px;
+  padding: 0.5em 0.75em;
+  width: 100%;
+}
+
+// Loading
+.loading {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.loading div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: theme-color("primary");
+  animation: loading 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.loading div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.loading div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.loading div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes loading {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}

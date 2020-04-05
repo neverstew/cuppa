@@ -5,7 +5,7 @@ class OnboardingControllerTest < ActionDispatch::IntegrationTest
 
   test "is a protected route" do
     gina = users(:gina)
-    get onboarding_path(gina)
+    get onboarding_path
 
     assert_select "[data-react-class='Onboarding']", 0
   end
@@ -13,7 +13,7 @@ class OnboardingControllerTest < ActionDispatch::IntegrationTest
   test "show renders the Onboarding component" do
     gina = users(:gina)
     sign_in gina
-    get onboarding_path(gina)
+    get onboarding_path
 
     assert_select "[data-react-class='Onboarding']", 1
   end

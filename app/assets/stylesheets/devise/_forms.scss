@@ -14,12 +14,6 @@
 #edit_user {
   max-width: 32em;
 
-  input:not([type=radio]), textarea {
-    border-radius: 4px;
-    padding: 0.5em 0.75em;
-    width: 100%;
-  }
-
   // not working - presuming due to lack of bootstrap in ruby env
   // @include media-breakpoint-up(md) {
   @media screen and (min-width: 768px) {

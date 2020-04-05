@@ -1,3 +1,45 @@
 // Place all the styles related to the onboarding controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#onboarding {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+
+  .onboarding{
+    &-container {
+      max-width: 900px;
+      height: 100%;
+    }
+    
+    &-form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-body {
+      flex-grow: 1;
+    }
+
+    &-footer {
+      display: flex;
+      justify-content: center;
+    }
+
+  }
+
+  .feedback-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
