@@ -1,9 +1,12 @@
 # cuppa
 ![Build status](https://github.com/matt-l-w/cuppa/workflows/build/badge.svg)
 
-This is source code for [cuppa](https://covid-cuppa.herokuapp.com). To find out
-more about cuppa, visit the website. This README will stick to development-related
-aspects of the project.
+This is source code for [cuppa](https://covid-cuppa.herokuapp.com). Cuppa was made
+as part of the COVID-19 Global Hackathon. To find out more about the motivations and
+pathway to building this, see the [project page](https://devpost.com/software/cuppa).
+To find out more about cuppa itself, visit the website.
+
+This README will stick to development-related aspects of the project.
 
 ## Architecture
 
